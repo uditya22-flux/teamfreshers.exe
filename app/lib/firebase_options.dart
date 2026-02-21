@@ -41,46 +41,46 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAI22G7s9s3oKaof8XQc--28fdjPDBf7IA',
-    appId: '1:789149704986:web:5d17f431022aeb944d42a3',
-    messagingSenderId: '789149704986',
-    projectId: 'maketon',
-    authDomain: 'maketon.firebaseapp.com',
-    storageBucket: 'maketon.firebasestorage.app',
+    apiKey: 'AIzaSyDgbjAErjGVu3p3iPbsR5BfLnaaFKHLL8k',
+    appId: '1:294673548071:web:e97e2f2479775b80569f02',
+    messagingSenderId: '294673548071',
+    projectId: 'maketonnn',
+    authDomain: 'maketonnn.firebaseapp.com',
+    storageBucket: 'maketonnn.firebasestorage.app',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBHm6Gvg_QqpoDG1n4dXg9Ju60odVtyGyE',
-    appId: '1:789149704986:android:ce7aa9999929b6a94d42a3',
-    messagingSenderId: '789149704986',
-    projectId: 'maketon',
-    storageBucket: 'maketon.firebasestorage.app',
+    apiKey: 'AIzaSyBC8UDS2HNoBOSoBWrJFXnZTSCRQNIE1y8',
+    appId: '1:294673548071:android:4a4d2671a77bd177569f02',
+    messagingSenderId: '294673548071',
+    projectId: 'maketonnn',
+    storageBucket: 'maketonnn.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyC3A3X21CC93w6wQICRIoNTS2riftepRZE',
-    appId: '1:789149704986:ios:e52e7347c0b9ec2e4d42a3',
-    messagingSenderId: '789149704986',
-    projectId: 'maketon',
-    storageBucket: 'maketon.firebasestorage.app',
+    apiKey: 'AIzaSyAdcRkJfN0s2uMCxs7zy6XKTu8ccibW2kg',
+    appId: '1:294673548071:ios:3436e94fc2e67d16569f02',
+    messagingSenderId: '294673548071',
+    projectId: 'maketonnn',
+    storageBucket: 'maketonnn.firebasestorage.app',
     iosBundleId: 'com.example.app',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyC3A3X21CC93w6wQICRIoNTS2riftepRZE',
-    appId: '1:789149704986:ios:e52e7347c0b9ec2e4d42a3',
-    messagingSenderId: '789149704986',
-    projectId: 'maketon',
-    storageBucket: 'maketon.firebasestorage.app',
+    apiKey: 'AIzaSyAdcRkJfN0s2uMCxs7zy6XKTu8ccibW2kg',
+    appId: '1:294673548071:ios:3436e94fc2e67d16569f02',
+    messagingSenderId: '294673548071',
+    projectId: 'maketonnn',
+    storageBucket: 'maketonnn.firebasestorage.app',
     iosBundleId: 'com.example.app',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyAI22G7s9s3oKaof8XQc--28fdjPDBf7IA',
-    appId: '1:789149704986:web:8a86ec1916181d614d42a3',
-    messagingSenderId: '789149704986',
-    projectId: 'maketon',
-    authDomain: 'maketon.firebaseapp.com',
-    storageBucket: 'maketon.firebasestorage.app',
+    apiKey: 'AIzaSyDgbjAErjGVu3p3iPbsR5BfLnaaFKHLL8k',
+    appId: '1:294673548071:web:df0a09e398a0d401569f02',
+    messagingSenderId: '294673548071',
+    projectId: 'maketonnn',
+    authDomain: 'maketonnn.firebaseapp.com',
+    storageBucket: 'maketonnn.firebasestorage.app',
   );
 }

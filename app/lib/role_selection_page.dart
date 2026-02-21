@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'student_register_page.dart';
+import 'faculty_registration.dart';
 
 class RoleSelectionPage extends StatefulWidget {
   const RoleSelectionPage({super.key});
@@ -113,6 +114,12 @@ class _RoleSelectionPageState extends State<RoleSelectionPage> {
         }
 
         if (selectedRole == "Faculty") {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const FacultyRegisterPage(),
+            ),
+          );
         }
       },
                   child: const Row(

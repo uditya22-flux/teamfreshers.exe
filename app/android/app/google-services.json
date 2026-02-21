@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "789149704986",
-    "project_id": "maketon",
-    "storage_bucket": "maketon.firebasestorage.app"
+    "project_number": "294673548071",
+    "project_id": "maketonnn",
+    "storage_bucket": "maketonnn.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:789149704986:android:ce7aa9999929b6a94d42a3",
+        "mobilesdk_app_id": "1:294673548071:android:4a4d2671a77bd177569f02",
         "android_client_info": {
           "package_name": "com.example.app"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBHm6Gvg_QqpoDG1n4dXg9Ju60odVtyGyE"
+          "current_key": "AIzaSyBC8UDS2HNoBOSoBWrJFXnZTSCRQNIE1y8"
         }
       ],
       "services": {

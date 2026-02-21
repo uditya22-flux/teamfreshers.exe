@@ -1,27 +1,24 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'student_home_page.dart';
 
-class StudentRegisterPage extends StatefulWidget {
-  const StudentRegisterPage({super.key});
+class FacultyRegisterPage extends StatefulWidget {
+  const FacultyRegisterPage({super.key});
 
   @override
-  State<StudentRegisterPage> createState() => _StudentRegisterPageState();
+  State<FacultyRegisterPage> createState() => _FacultyRegisterPageState();
 }
 
-class _StudentRegisterPageState extends State<StudentRegisterPage> {
-  final TextEditingController name = TextEditingController();
-  final TextEditingController studentId = TextEditingController();
+class _FacultyRegisterPageState extends State<FacultyRegisterPage> {
+  final TextEditingController facultyName = TextEditingController();
+  final TextEditingController facultyId = TextEditingController();
 
   String? selectedDepartment;
-  String? selectedSemester;
 
-  final List<String> departments = [
+  final List<String> facultyDepartments = [
     "COMPUTER SCIENCE ENGINEERING",
     "CIVIL ENGINEERING",
     "MECHANICAL ENGINEERING",
-    "FIRE AND SAFETY",
     "ELECTRICAL ENGINEERING",
     "ELECTRONICS AND COMMUNICATION ENGINEERING",
     "PHOTONICS",
@@ -29,13 +26,10 @@ class _StudentRegisterPageState extends State<StudentRegisterPage> {
     "PHYSICS",
   ];
 
-  final List<String> semesters = ["1", "2", "3", "4", "5", "6", "7", "8"];
-
-  Future<void> registerStudent() async {
-    if (name.text.isEmpty ||
-        studentId.text.isEmpty ||
-        selectedDepartment == null ||
-        selectedSemester == null) {
+  Future<void> registerFaculty() async {
+    if (facultyName.text.isEmpty ||
+        facultyId.text.isEmpty ||
+        selectedDepartment == null) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text("Please fill all fields")),
       );
@@ -43,10 +37,10 @@ class _StudentRegisterPageState extends State<StudentRegisterPage> {
     }
 
     try {
-      final email = "${studentId.text}@student.app";
+      final email = "${facultyId.text}@faculty.app";
       const defaultPassword = "123456";
 
-      // Create Firebase Auth User
+      // Create Firebase Auth account
       await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: email,
         password: defaultPassword,
@@ -54,12 +48,11 @@ class _StudentRegisterPageState extends State<StudentRegisterPage> {
 
       final uid = FirebaseAuth.instance.currentUser!.uid;
 
-      // Save details to Firestore
-      await FirebaseFirestore.instance.collection("students").doc(uid).set({
-        "name": name.text,
-        "studentId": studentId.text,
-        "department": selectedDepartment,
-        "semester": selectedSemester,
+      // Save to Firestore
+      await FirebaseFirestore.instance.collection("faculty").doc(uid).set({
+        "facultyName": facultyName.text,
+        "facultyId": facultyId.text,
+        "facultyDepartment": selectedDepartment,
         "email": email,
         "uid": uid,
       });
@@ -67,15 +60,13 @@ class _StudentRegisterPageState extends State<StudentRegisterPage> {
       if (!mounted) return;
 
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("Registration Successful")),
+        const SnackBar(content: Text("Faculty Registration Successful")),
       );
 
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (_) => const StudentHomePage()),
-      );
+      Navigator.pop(context); // Go back after success
     } catch (e) {
       if (!mounted) return;
+
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text("Registration Failed: $e")),
       );
@@ -88,7 +79,7 @@ class _StudentRegisterPageState extends State<StudentRegisterPage> {
       backgroundColor: const Color(0xFFF8EDE7),
       appBar: AppBar(
         backgroundColor: const Color(0xFF6A1B1A),
-        title: const Text("Student Registration"),
+        title: const Text("Faculty Registration"),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(25),
@@ -96,27 +87,18 @@ class _StudentRegisterPageState extends State<StudentRegisterPage> {
           children: [
             const SizedBox(height: 10),
 
-            buildTextField("Name", name),
+            buildTextField("Faculty Name", facultyName),
             const SizedBox(height: 20),
-            buildTextField("Student ID", studentId),
+
+            buildTextField("Faculty ID", facultyId),
             const SizedBox(height: 20),
 
             buildDropdown(
-              label: "Department",
+              label: "Faculty Department",
               value: selectedDepartment,
-              items: departments,
+              items: facultyDepartments,
               onChanged: (value) =>
                   setState(() => selectedDepartment = value),
-            ),
-
-            const SizedBox(height: 20),
-
-            buildDropdown(
-              label: "Semester",
-              value: selectedSemester,
-              items: semesters,
-              onChanged: (value) =>
-                  setState(() => selectedSemester = value),
             ),
 
             const SizedBox(height: 40),
@@ -131,9 +113,9 @@ class _StudentRegisterPageState extends State<StudentRegisterPage> {
                     borderRadius: BorderRadius.circular(20),
                   ),
                 ),
-                onPressed: registerStudent,
+                onPressed: registerFaculty,
                 child: const Text(
-                  "Register",
+                  "Register Faculty",
                   style: TextStyle(fontSize: 18),
                 ),
               ),
@@ -192,6 +174,7 @@ class _StudentRegisterPageState extends State<StudentRegisterPage> {
           ),
         ),
         const SizedBox(height: 8),
+
         Container(
           width: double.infinity,
           padding: const EdgeInsets.only(left: 18, right: 12),
@@ -214,7 +197,7 @@ class _StudentRegisterPageState extends State<StudentRegisterPage> {
             onChanged: onChanged,
           ),
         ),
-      ]
+      ],
     );
   }
 }
