@@ -102,8 +102,14 @@ class _RoleSelectionPageState extends State<RoleSelectionPage> {
                   onPressed: selectedRole == null
                       ? null
                       : () {
-                          // Navigation will be added later
-                          print("Selected Role: $selectedRole");
+                          if (selectedRole == "Student") {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => const StudentRegisterPage(),
+                              ),
+                            );
+                          }
                         },
                   child: const Row(
                     mainAxisAlignment: MainAxisAlignment.center,

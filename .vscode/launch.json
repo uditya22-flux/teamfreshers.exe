@@ -1,0 +1,28 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "teamfreshers",
+            "request": "launch",
+            "type": "dart",
+            "cwd": "${workspaceFolder}/app",
+            "program": "app/lib/main.dart"
+        },
+        {
+            "name": "teamfreshers (profile)",
+            "request": "launch",
+            "type": "dart",
+            "cwd": "${workspaceFolder}/app",
+            "program": "app/lib/main.dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "teamfreshers (release)",
+            "request": "launch",
+            "type": "dart",
+            "cwd": "${workspaceFolder}/app",
+            "program": "app/lib/main.dart",
+            "flutterMode": "release"
+        }
+    ]
+}
