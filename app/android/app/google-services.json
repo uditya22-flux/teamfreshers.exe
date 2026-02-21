@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "193484825632",
+    "project_id": "cusatify",
+    "storage_bucket": "cusatify.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:193484825632:android:23ed351fa3623612400845",
+        "android_client_info": {
+          "package_name": "com.example.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1UhCltmzD6hnSQUqILOhI_fj3VT96WH4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
