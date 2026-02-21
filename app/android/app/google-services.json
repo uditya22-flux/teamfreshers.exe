@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "193484825632",
-    "project_id": "cusatify",
-    "storage_bucket": "cusatify.firebasestorage.app"
+    "project_number": "789149704986",
+    "project_id": "maketon",
+    "storage_bucket": "maketon.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:193484825632:android:23ed351fa3623612400845",
+        "mobilesdk_app_id": "1:789149704986:android:ce7aa9999929b6a94d42a3",
         "android_client_info": {
           "package_name": "com.example.app"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyC1UhCltmzD6hnSQUqILOhI_fj3VT96WH4"
+          "current_key": "AIzaSyBHm6Gvg_QqpoDG1n4dXg9Ju60odVtyGyE"
         }
       ],
       "services": {
