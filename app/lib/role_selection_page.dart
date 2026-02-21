@@ -113,7 +113,6 @@ class _RoleSelectionPageState extends State<RoleSelectionPage> {
         }
 
         if (selectedRole == "Faculty") {
-          // we'll add faculty page later
         }
       },
                   child: const Row(
