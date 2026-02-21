@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'student_register_page.dart';
 
 class RoleSelectionPage extends StatefulWidget {
   const RoleSelectionPage({super.key});
@@ -100,11 +101,21 @@ class _RoleSelectionPageState extends State<RoleSelectionPage> {
                     elevation: 5,
                   ),
                   onPressed: selectedRole == null
-                      ? null
-                      : () {
-                          // Navigation will be added later
-                          print("Selected Role: $selectedRole");
-                        },
+    ? null
+    : () {
+        if (selectedRole == "Student") {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const StudentRegisterPage(),
+            ),
+          );
+        }
+
+        if (selectedRole == "Faculty") {
+          // we'll add faculty page later
+        }
+      },
                   child: const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
