@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'student_register_page.dart';
 import 'faculty_registration.dart';
+import 'test_qr_page.dart';
 
 class RoleSelectionPage extends StatefulWidget {
   const RoleSelectionPage({super.key});
@@ -15,134 +16,235 @@ class _RoleSelectionPageState extends State<RoleSelectionPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF8EDE7),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              // Logo Circle
-              Container(
-                height: 110,
-                width: 110,
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.white,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black12,
-                      blurRadius: 8,
-                    )
-                  ],
-                ),
-                child: const Icon(
-                  Icons.school_rounded,
-                  size: 50,
-                  color: Color(0xFF6A1B1A),
-                ),
-              ),
-
-              const SizedBox(height: 20),
-
-              // College Name (Editable)
-              const Text(
-                "Cusatify",
-                style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xFF6A1B1A),
-                ),
-              ),
-
-              const Text(
-                "Select Identity",
-                style: TextStyle(color: Colors.black54, fontSize: 16),
-              ),
-
-              const SizedBox(height: 35),
-
-              // Role Toggle (Student / Faculty)
-              Container(
-                height: 55,
-                width: double.infinity,
-                padding: const EdgeInsets.all(5),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(30),
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Colors.black12,
-                      blurRadius: 6,
-                    )
-                  ],
-                ),
-                child: Row(
-                  children: [
-                    _buildRoleOption("Student"),
-                    _buildRoleOption("Faculty"),
-                  ],
-                ),
-              ),
-
-              const SizedBox(height: 40),
-
-              // Continue Button
-              SizedBox(
-                width: double.infinity,
-                height: 55,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: selectedRole == null
-                        ? Colors.grey.shade400
-                        : const Color(0xFF6A1B1A),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    elevation: 5,
-                  ),
-                  onPressed: selectedRole == null
-    ? null
-    : () {
-        if (selectedRole == "Student") {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const StudentRegisterPage(),
-            ),
-          );
-        }
-
-        if (selectedRole == "Faculty") {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => const FacultyRegisterPage(),
-            ),
-          );
-        }
-      },
-                  child: const Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Continue",
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      SizedBox(width: 10),
-                      Icon(Icons.arrow_right_alt),
-                    ],
-                  ),
-                ),
-              ),
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [
+              Color(0xFFFDF7F4),
+              Color(0xFFF8EDE7),
             ],
           ),
+        ),
+        child: Stack(
+          children: [
+            // Decorative background shapes
+            Positioned(
+              top: -100,
+              right: -100,
+              child: Container(
+                height: 300,
+                width: 300,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: const Color(0xFF6A1B1A).withOpacity(0.05),
+                ),
+              ),
+            ),
+            Positioned(
+              bottom: -50,
+              left: -50,
+              child: Container(
+                height: 200,
+                width: 200,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: const Color(0xFF6A1B1A).withOpacity(0.03),
+                ),
+              ),
+            ),
+
+            Center(
+              child: SingleChildScrollView(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    // Premium Logo Container
+                    Container(
+                      height: 120,
+                      width: 120,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.white,
+                        boxShadow: [
+                          BoxShadow(
+                            color: const Color(0xFF6A1B1A).withOpacity(0.15),
+                            blurRadius: 25,
+                            spreadRadius: 2,
+                            offset: const Offset(0, 10),
+                          )
+                        ],
+                      ),
+                      child: const Icon(
+                        Icons.school_rounded,
+                        size: 55,
+                        color: Color(0xFF6A1B1A),
+                      ),
+                    ),
+
+                    const SizedBox(height: 25),
+
+                    const Text(
+                      "Cusatify",
+                      style: TextStyle(
+                        fontSize: 34,
+                        fontWeight: FontWeight.w900,
+                        color: Color.fromARGB(255, 15, 188, 24),
+                        letterSpacing: 1.2,
+                      ),
+                    ),
+
+                    const SizedBox(height: 8),
+
+                    const Text(
+                      "Elevating your campus experience",
+                      style: TextStyle(
+                        color: Colors.black45,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+
+                    const SizedBox(height: 50),
+
+                    // Toggle Label
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 10, bottom: 12),
+                        child: Text(
+                          "SELECT YOUR ROLE",
+                          style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w800,
+                            color: const Color.fromARGB(255, 65, 46, 187).withOpacity(0.6),
+                            letterSpacing: 1.5,
+                          ),
+                        ),
+                      ),
+                    ),
+
+                    // Role Toggle with Glow
+                    Container(
+                      height: 65,
+                      width: double.infinity,
+                      padding: const EdgeInsets.all(6),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(35),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.05),
+                            blurRadius: 15,
+                            offset: const Offset(0, 5),
+                          )
+                        ],
+                      ),
+                      child: Row(
+                        children: [
+                          _buildRoleOption("Student"),
+                          _buildRoleOption("Faculty"),
+                        ],
+                      ),
+                    ),
+
+                    const SizedBox(height: 45),
+
+                    // Continue Button with Gradient
+                    InkWell(
+                      onTap: selectedRole == null
+                          ? null
+                          : () {
+                              if (selectedRole == "Student") {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (_) => const StudentRegisterPage()),
+                                );
+                              } else {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (_) => const FacultyRegisterPage()),
+                                );
+                              }
+                            },
+                      child: AnimatedContainer(
+                        duration: const Duration(milliseconds: 300),
+                        width: double.infinity,
+                        height: 60,
+                        decoration: BoxDecoration(
+                          gradient: selectedRole == null
+                              ? null
+                              : const LinearGradient(
+                                  colors: [Color(0xFF6A1B1A), Color(0xFF9A2B2A)],
+                                  begin: Alignment.centerLeft,
+                                  end: Alignment.centerRight,
+                                ),
+                          color: selectedRole == null ? Colors.grey.shade300 : null,
+                          borderRadius: BorderRadius.circular(30),
+                          boxShadow: selectedRole == null
+                              ? []
+                              : [
+                                  BoxShadow(
+                                    color: const Color(0xFF6A1B1A).withOpacity(0.3),
+                                    blurRadius: 15,
+                                    offset: const Offset(0, 8),
+                                  )
+                                ],
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Get Started",
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: selectedRole == null ? Colors.black26 : Colors.white,
+                              ),
+                            ),
+                            const SizedBox(width: 12),
+                            Icon(
+                              Icons.arrow_forward_rounded,
+                              color: selectedRole == null ? Colors.black26 : Colors.white,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+
+                    const SizedBox(height: 60),
+
+                    // Debug/Test QR Button
+                    TextButton.icon(
+                      style: TextButton.styleFrom(
+                        foregroundColor: Colors.brown.withOpacity(0.6),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (_) => const TestQRPage()),
+                        );
+                      },
+                      icon: const Icon(Icons.qr_code_scanner, size: 20),
+                      label: const Text(
+                        "Debug: Test QR Code",
+                        style: TextStyle(fontWeight: FontWeight.w600),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
   }
 
-  // Role Option Widget
   Widget _buildRoleOption(String role) {
     bool isSelected = selectedRole == role;
 
@@ -150,18 +252,33 @@ class _RoleSelectionPageState extends State<RoleSelectionPage> {
       child: GestureDetector(
         onTap: () => setState(() => selectedRole = role),
         child: AnimatedContainer(
-          duration: const Duration(milliseconds: 250),
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeOutCubic,
           alignment: Alignment.center,
           decoration: BoxDecoration(
-            color: isSelected ? const Color(0xFF6A1B1A) : Colors.transparent,
+            gradient: isSelected
+                ? const LinearGradient(
+                    colors: [Color(0xFF6A1B1A), Color(0xFF912321)],
+                  )
+                : null,
+            color: isSelected ? null : Colors.transparent,
             borderRadius: BorderRadius.circular(30),
+            boxShadow: isSelected
+                ? [
+                    BoxShadow(
+                      color: const Color(0xFF6A1B1A).withOpacity(0.2),
+                      blurRadius: 10,
+                      offset: const Offset(0, 4),
+                    )
+                  ]
+                : [],
           ),
           child: Text(
             role,
             style: TextStyle(
-              color: isSelected ? Colors.white : Colors.black54,
-              fontSize: isSelected ? 17 : 16,
-              fontWeight: isSelected ? FontWeight.bold : FontWeight.w500,
+              color: isSelected ? Colors.white : Colors.black45,
+              fontSize: 16,
+              fontWeight: isSelected ? FontWeight.w800 : FontWeight.w600,
             ),
           ),
         ),
